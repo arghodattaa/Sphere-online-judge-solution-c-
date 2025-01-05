@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+#include<bits/stdc++.h>
+int main(){
+  vector<bool>primet(1e8+1,true);
+  vector<long long int >prime;
+  primet[0]=primet[1]=false;
+  for(long long int i=2;i*i<=1e8;i++){
+        if(primet[i]){
+    for(long long int j=i*i;j<=1e8;j+=i){
+        primet[j]=false;
+    }
+  }
+  }
+  long long int sum=0;
+  for(long long int i=2;i<=1e8;i++){
+    if(primet[i])prime.push_back(i);
+  }
+
+ for(int i=0;i<prime.size();i+=100){
+    cout<<prime[i]<<endl;
+ }
+}
