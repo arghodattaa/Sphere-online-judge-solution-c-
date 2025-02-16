@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+#include<queue>
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+   queue< int > q;
+   int n ; cin>>n;
+    int t;
+   while (n--){
+      cin>>t;
+      if(t==1){
+         int a; cin>> a ;
+        q.push(a);
+      }
+      else if ( t == 2){
+          if( ! q.empty()) q.pop();
+      }
+       else{
+
+        if(q.empty()){
+            cout<<"Empty!\n";
+        }else {
+            cout<<q.front()<<"\n";
+        }
+      }
+   }
+}
