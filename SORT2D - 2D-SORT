@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+#include<bits/stdc++.h>
+bool sorts(  pair < int, int >& a , pair < int, int >& b ){
+     if( a.first == b.first) return a.second > b.second ;
+     return a.first < b.first ;
+}
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    int te; cin>>te;
+    while( te--){
+        int n ; cin>>n;
+        vector< pair< int , int> >vc(n);
+        for( int i =0; i < n ; i++){
+            cin>> vc[i].first >> vc[i].second;
+
+        }
+        sort( vc.begin(), vc.end(), sorts);
+        for( int i = 0; i<n ; i++){
+            cout<<vc[i].first<<" "<<vc[i].second<<"\n";
+        }
+    }
+}
