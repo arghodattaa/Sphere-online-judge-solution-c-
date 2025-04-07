@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+#include<bits/stdc++.h>
+long long nn;
+map<long long ,long long >mp;
+long long f( long long n){
+   if(n == 0)return 0;
+   if( n == 1 || n == 2) return 1;
+   if(mp.count(n))return mp[n];
+   long long k = n/2;
+   long long a,b;
+   a = f(k+1);
+   mp[k+1] =a;
+   b = f(k);
+   mp[k] = b;
+   long long ab;
+   if( n%2 == 0){
+    ab = (b*((2*a)%nn - b)%nn )%nn;
+   }
+   else ab = ((a*a)%nn + (b*b)%nn)%nn;
+   mp[n] = (ab + nn)%nn;
+   return mp[n];
+}
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+  int te; cin>>te;
+  while(te--){
+        mp[0] = 0;
+        mp[1] = 1;
+        mp[2] = 1;
+
+    long long n,m;
+    cin>>n>>m;
+    nn = pow(2,m);
+    cout<<f(n+1)<<"\n";
+    mp.clear();
+  }
+}
